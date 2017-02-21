@@ -1,0 +1,2 @@
+﻿1. Zaimplementować generowanie Area z całą strukturą katalogów. Dopiero kiedy struktura będzie pewna. 
+
