@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Infrastructure.Server.Initialization;
+using Infrastructure.Shared.Initialization;
 
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "Web.config", Watch = true)]
 namespace Solano.Web
 {
     public class MvcApplication : System.Web.HttpApplication
@@ -17,7 +15,9 @@ namespace Solano.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Bootstrap.Start();
+
+            var initializationContext = InitializationContext.Create(ControllerBuilder.Current);
+            Bootstrap.Start(initializationContext);
         }
     }
 }
