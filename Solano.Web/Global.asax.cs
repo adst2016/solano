@@ -4,7 +4,6 @@ using System.Web.Routing;
 using Infrastructure.Server.Initialization;
 using Infrastructure.Shared.Initialization;
 
-[assembly: log4net.Config.XmlConfigurator(ConfigFile = "Web.config", Watch = true)]
 namespace Solano.Web
 {
     public class MvcApplication : System.Web.HttpApplication

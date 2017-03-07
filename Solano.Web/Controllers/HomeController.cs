@@ -1,16 +1,12 @@
 ﻿using System.Web.Mvc;
 using log4net;
-using Infrastructure.Common.Logging;
 
 namespace Solano.Web.Controllers
 {    
     public class HomeController : Controller
-    {        
-        private readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);        
-
+    {
         public ActionResult Index()
-        {            
-            log.Info("fdsaJJKLJLeeeeeeeeeeK");
+        {
             return View();
         }
 
