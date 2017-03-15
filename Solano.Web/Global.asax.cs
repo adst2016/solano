@@ -17,6 +17,7 @@ namespace Solano.Web
 
             var initializationContext = InitializationContext.Create(ControllerBuilder.Current);
             Bootstrap.Start(initializationContext);
+            
         }
     }
 }
