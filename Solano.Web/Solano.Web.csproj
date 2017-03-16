@@ -64,6 +64,10 @@
       <HintPath>..\packages\FluentMigrator.1.6.2\lib\40\FluentMigrator.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -73,6 +77,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -192,8 +200,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Logic\AdministrationLogic.cs" />
     <Compile Include="Areas\Administration\Models\Entities\Person.cs" />
     <Compile Include="Areas\Administration\Models\Entities\Test.cs" />
+    <Compile Include="Areas\Administration\Models\Repositories\TestRepository.cs" />
     <Compile Include="Areas\Administration\Services\AdministrationService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -300,9 +310,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\Administration\Models\Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

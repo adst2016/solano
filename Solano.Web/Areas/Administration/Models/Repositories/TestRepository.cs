@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Infrastructure.DataBase.Repositories;
+﻿using Infrastructure.DataBase.Repositories;
 using Solano.Web.Areas.Administration.Models.Entities;
+using System;
 
 namespace Solano.Web.Areas.Administration.Models.Repositories
 {
-    public class TestRepository : RepositoryBase<Test>
+    public interface ITestRepository : IRepository<Person, Guid>
     {
-        public TestRepository(global::NHibernate.ISession session) : base(session)
+        Guid GetByName(string name);
+    }
+
+    public class TestRepository : RepositoryBase<Person, Guid>, ITestRepository
+    {
+        public Guid GetByName(string name)
         {
+            Person person = this.Session.CreateQuery("from Person as person where person.Name = '" + name + "'").UniqueResult<Person>();
+
+            return person.Id;            
         }
     }
 }
