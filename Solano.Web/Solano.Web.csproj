@@ -200,11 +200,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
-    <Compile Include="Areas\Administration\Logic\AdministrationLogic.cs" />
-    <Compile Include="Areas\Administration\Models\Entities\Person.cs" />
-    <Compile Include="Areas\Administration\Models\Entities\Test.cs" />
-    <Compile Include="Areas\Administration\Models\Repositories\TestRepository.cs" />
-    <Compile Include="Areas\Administration\Services\AdministrationService.cs" />
+    <Compile Include="Areas\Administration\Controllers\AdministrationController.cs" />
+    <Compile Include="Areas\Administration\Controllers\FormTypesController.cs" />
+    <Compile Include="Areas\Main\Models\DTO\FormTypeCreateDto.cs" />
+    <Compile Include="Areas\Main\Models\DTO\FormTypeInfoDto.cs" />
+    <Compile Include="Areas\Main\Models\MappingServices\FormTypeMappingService.cs" />
+    <Compile Include="Areas\Main\MainAreaRegistration.cs" />
+    <Compile Include="Areas\Main\Models\Entities\Form.cs" />
+    <Compile Include="Areas\Main\Models\Entities\FormType.cs" />
+    <Compile Include="Areas\Main\Models\Entities\Panel.cs" />
+    <Compile Include="Areas\Main\Models\Entities\PanelType.cs" />
+    <Compile Include="Areas\Main\Services\FormTypeService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -220,7 +226,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\ArchitectureNotes.txt" />
-    <Content Include="Areas\Administration\Controllers\TextFile1.txt" />
     <Content Include="Areas\Administration\Logic\TextFile1.txt" />
     <Content Include="Areas\Administration\Models\DTO\TextFile1.txt" />
     <Content Include="Areas\Administration\Models\Entities\TextFile1.txt" />
@@ -235,6 +240,15 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Administration\Views\web.config" />
+    <Content Include="Areas\Main\Views\web.config" />
+    <Content Include="Areas\Administration\Views\Administration\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Administration\FormList.cshtml" />
+    <Content Include="Areas\Administration\Views\Administration\PanelList.cshtml" />
+    <Content Include="Areas\Administration\Views\FormTypes\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\FormTypes\Delete.cshtml" />
+    <Content Include="Areas\Administration\Views\FormTypes\Details.cshtml" />
+    <Content Include="Areas\Administration\Views\FormTypes\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\FormTypes\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -293,6 +307,10 @@
       <Project>{c00a17eb-4c0e-468b-afff-dda95bfd4eb7}</Project>
       <Name>Infrastructure.DataBase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\elite\trunk\Infrastructure.Fundamental\Infrastructure.Fundamental.csproj">
+      <Project>{d4b4957b-e897-430e-aa06-b076e32df4e5}</Project>
+      <Name>Infrastructure.Fundamental</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\elite\trunk\Infrastructure.Server\Infrastructure.Server.csproj">
       <Project>{77051cbd-b4ed-4f2e-aee9-ed8bf31a4a24}</Project>
       <Name>Infrastructure.Server</Name>
@@ -310,7 +328,14 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\Administration\Models\Repositories\" />
+    <Folder Include="Areas\Administration\Views\Home\" />
+    <Folder Include="Areas\Main\Controllers\" />
+    <Folder Include="Areas\Main\Logic\" />
+    <Folder Include="Areas\Main\Models\Repositories\" />
+    <Folder Include="Areas\Main\Views\Shared\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

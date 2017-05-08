@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Formularze", "FormList", "Administration", new { area = "Administration" }, null)</li>
+        <li>@Html.ActionLink("Panele", "PanelList", "Administration", new { area = "Administration" }, null)</li>
+
+        <li>@Html.ActionLink("Typy formularzy", "Index", "FormTypes", new { area = "Administration" }, null)</li>
+
+    </ul>
+</div>
+
+
+

@@ -1,27 +1,41 @@
-﻿using System;
+﻿using Infrastructure.Fundamental.Controllers;
+using System.Security.Claims;
 using System.Web.Mvc;
-using log4net;
-using Solano.Web.Areas.Administration.Services;
+
+//using Solano.Web.Areas.Administration.Services;
 
 namespace Solano.Web.Controllers
-{    
-    public class HomeController : Controller
+{
+    public class HomeController : AppControllerBase
     {
-        private readonly IAdministrationService administrationService;
+        //private readonly IAdministrationService administrationService;
 
-        public HomeController(IAdministrationService administrationService)
-        {
-            this.administrationService = administrationService;
-        }
+        //public HomeController(IAdministrationService administrationService)
+        //{
+        //    this.administrationService = administrationService;
+        //}
 
         public ActionResult Index()
         {
-            Guid g = Guid.NewGuid();
-            string name = this.administrationService.GetName(g);
+            
+            if (CurrentUser.Identity.IsAuthenticated)
+            {
+                var id = CurrentUser.Id;
+            }
+
+            //IPrincipal threadPrincipal = Thread.CurrentPrincipal;
+
+            ClaimsPrincipal icp = this.User as ClaimsPrincipal;
+            //ClaimsPrincipal icp = Thread.CurrentPrincipal as ClaimsPrincipal;
+
+            var claim = icp.FindFirst(ClaimTypes.NameIdentifier);
+
+            //Request.GetOwinContext().Authentication.User.Claims
 
             return View();
         }
 
+        
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Solano.Web.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Solano.Web
 {
@@ -34,7 +35,7 @@ namespace Solano.Web
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
-            });            
+            });
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Enables the application to temporarily store user information when they are verifying the second factor in the two-factor authentication process.
@@ -63,6 +64,56 @@ namespace Solano.Web
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+        }
+
+        private void createRolesandUsers()
+        {
+            ApplicationDbContext context = new ApplicationDbContext();
+
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+            // In Startup iam creating first Admin Role and creating a default Admin User    
+            if (roleManager.RoleExists("Admin") == false)
+            {
+
+                // first we create Admin rool   
+                var role = new IdentityRole();
+                role.Name = "Admin";
+                roleManager.Create(role);
+
+                //Here we create a Admin super user who will maintain the website                  
+
+                var user = new ApplicationUser();
+                user.UserName = "adst";
+                user.Email = "adst@gmail.com";
+
+                string userPWD = "qaZ12#";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                //Add default User to Role Admin   
+                if (chkUser.Succeeded)
+                {
+                    var result1 = UserManager.AddToRole(user.Id, "Admin");
+                }
+            }
+
+            // creating Creating Manager role    
+            if (roleManager.RoleExists("Manager") == false)
+            {
+                var role = new IdentityRole();
+                role.Name = "Manager";
+                roleManager.Create(role);
+            }
+
+            // creating Creating Employee role    
+            if (roleManager.RoleExists("Employee") == false)
+            {
+                var role = new IdentityRole();
+                role.Name = "Employee";
+                roleManager.Create(role);
+            }
         }
     }
 }

@@ -17,8 +17,7 @@ namespace Solano.Web.Migrations
         public override void Up()
         {
             //Alter.Column("Shelf_id").OnTable("Test").AsInt32().NotNullable();
-
-            Create.Index("index001").OnTable("Test").OnColumn("Id").Ascending();
+            //Create.Index("index001").OnTable("Test").OnColumn("Id").Ascending();
         }
 
     }
