@@ -330,7 +330,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Administration\Models\Repositories\" />
-    <Folder Include="Areas\Administration\Views\Home\" />
     <Folder Include="Areas\Main\Controllers\" />
     <Folder Include="Areas\Main\Logic\" />
     <Folder Include="Areas\Main\Models\Repositories\" />
