@@ -201,7 +201,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdministrationController.cs" />
-    <Compile Include="Areas\Administration\Controllers\FormTypesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\FormTypes2Controller.cs" />
     <Compile Include="Areas\Main\Models\DTO\FormTypeCreateDto.cs" />
     <Compile Include="Areas\Main\Models\DTO\FormTypeInfoDto.cs" />
     <Compile Include="Areas\Main\Models\MappingServices\FormTypeMappingService.cs" />

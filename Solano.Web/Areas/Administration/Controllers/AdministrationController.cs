@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Solano.Web.Areas.Main.Controllers
+namespace Solano.Web.Areas.Administration.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class AdministrationController : Controller

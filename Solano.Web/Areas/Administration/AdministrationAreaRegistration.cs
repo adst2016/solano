@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Solano.Web.Areas.Main
+namespace Solano.Web.Areas.Administration
 {
     public class AdministrationAreaRegistration : AreaRegistration 
     {

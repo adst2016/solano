@@ -5,7 +5,7 @@ using System;
 using System.Net;
 using System.Web.Mvc;
 
-namespace Solano.Web.Areas.Main.Controllers
+namespace Solano.Web.Areas.Administration.Controllers
 {
     public class FormTypesController : AppControllerBase
     {
