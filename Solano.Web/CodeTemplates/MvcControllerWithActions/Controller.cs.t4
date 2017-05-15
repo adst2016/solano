@@ -1,33 +1,50 @@
-﻿using System.Web.Mvc;
-
-namespace Solano.Web.Areas.Administration.Controllers
+﻿<#@ template language="C#" HostSpecific="True" #>
+<#@ output extension="cs" #>
+<#@ import namespace="System" #>
+<#@ parameter type="System.String" name="ControllerName" #>
+<#@ parameter type="System.String" name="ControllerRootName" #>
+<#@ parameter type="System.String" name="Namespace" #>
+<#@ parameter type="System.String" name="AreaName" #>
+<#
+string routePrefix;
+if (String.IsNullOrEmpty(AreaName)) 
 {
-    [Authorize(Roles = "Admin")]
-    public class AdministrationController : Controller
+    routePrefix = ControllerRootName;
+}
+else
+{
+    routePrefix = AreaName + "/" + ControllerRootName;
+}
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace <#= Namespace #>
+{
+    public class <#= ControllerName #> : Controller
     {
-        // GET: Administration/Home
+        // GET: <#= routePrefix #>
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult FormList()
-        {
-            return View();
-        }
-        
-        public ActionResult PanelList()
+        // GET: <#= routePrefix #>/Details/5
+        public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Administration/Home/Create
+        // GET: <#= routePrefix #>/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Administration/Home/Create
+        // POST: <#= routePrefix #>/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -43,13 +60,13 @@ namespace Solano.Web.Areas.Administration.Controllers
             }
         }
 
-        // GET: Administration/Home/Edit/5
+        // GET: <#= routePrefix #>/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Administration/Home/Edit/5
+        // POST: <#= routePrefix #>/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -65,13 +82,13 @@ namespace Solano.Web.Areas.Administration.Controllers
             }
         }
 
-        // GET: Administration/Home/Delete/5
+        // GET: <#= routePrefix #>/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Administration/Home/Delete/5
+        // POST: <#= routePrefix #>/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

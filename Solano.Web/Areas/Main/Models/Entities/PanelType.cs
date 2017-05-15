@@ -4,6 +4,5 @@ namespace Solano.Web.Areas.Main.Models.Entities
 {
     public class PanelType : EntityWithDescriptionBase
     {
-        
     }
 }

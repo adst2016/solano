@@ -1,4 +1,4 @@
-﻿using Solano.Web.Areas.Administration.Models.MappingServices;
+﻿using Infrastructure.Fundamental.MappingServiceBase;
 using Solano.Web.Areas.Main.Models.DTO;
 using Solano.Web.Areas.Main.Models.Entities;
 

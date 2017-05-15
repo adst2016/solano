@@ -1,4 +1,4 @@
-﻿using Infrastructure.Fundamental.Controllers;
+﻿using Infrastructure.Fundamental.ControllerBase;
 using System.Security.Claims;
 using System.Web.Mvc;
 

@@ -29,5 +29,7 @@ namespace Solano.Web.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Solano.Web.Areas.Main.Models.Entities.Form> Forms { get; set; }
     }
 }
